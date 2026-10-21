@@ -107,3 +107,14 @@ including 33 GPU tests. Eleven focused pixel/receiver/timeline scenarios cover
 implicit and explicit synchronization. Four Python Spout tests passed. A shell
 probe verified delayed service-registration visibility through the installer
 retry; `bash -n` passed. These checks do not certify VSeeFace or long workloads.
+
+
+## VSeeFace environment preparation, 2026-10-21
+
+The test machine now has system Wine 11.20, Winetricks and UMU Launcher 1.4.3.
+A separate win64 prefix uses GE-Proton11-1-spout2pw-fixes-V2 through UMU, with
+Arial and Visual C++ 2010/2015 installed. Bridge installation and an end-to-end
+launcher check using `cmd.exe /c ver` succeeded. This is environment preparation:
+the VSeeFace executable, camera, tracking and real Spout output have not been
+validated. No dependency binary or proprietary launcher/receiver is included
+in this public repository.
