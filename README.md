@@ -2,7 +2,7 @@
 
 ## Netrunner integration fork
 
-This public fork tracks the bridge used for planned Linux VTuber support in
+This public fork tracks the bridge used for Linux VTuber integration in
 Netrunner Studio. The inherited bridge remains under LGPL-2.1; see
 [COPYING.txt](COPYING.txt). Original authorship and third-party notices are retained.
 
@@ -12,8 +12,9 @@ The independent receiver now has an initial implementation in the private
 Studio / NetEngine codebase, tested with synthetic PipeWire senders and a
 libfunnel transport probe. GPU-only frame transport to Vulkan has now also
 passed synthetic tests on Intel UHD 770 and NVIDIA RTX 5050, with CPU fallback.
-Its source is not published here. VTube Studio /
-VSeeFace compatibility through this bridge is still unvalidated.
+Its source is not published here. VTube Studio has now passed a real 1920x1080 GPU reception smoke on RTX 5050
+using the Spout2PW 0.3.0 release and GE-Proton11-1-spout2pw-fixes-V2.
+VSeeFace and extended application lifecycle/load tests remain unvalidated.
 See [INTEGRATION.md](INTEGRATION.md) for the boundary,
 upstream baseline and acceptance criteria.
 
