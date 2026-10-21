@@ -10,7 +10,9 @@ The receiver in Netrunner Studio / NetEngine is intended to be an independent,
 proprietary PipeWire consumer. Its source is not part of this repository.
 The independent receiver now has an initial implementation in the private
 Studio / NetEngine codebase, tested with synthetic PipeWire senders and a
-libfunnel transport probe. Its source is not published here. VTube Studio /
+libfunnel transport probe. GPU-only frame transport to Vulkan has now also
+passed synthetic tests on Intel UHD 770 and NVIDIA RTX 5050, with CPU fallback.
+Its source is not published here. VTube Studio /
 VSeeFace compatibility through this bridge is still unvalidated.
 See [INTEGRATION.md](INTEGRATION.md) for the boundary,
 upstream baseline and acceptance criteria.

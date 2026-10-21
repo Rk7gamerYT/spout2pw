@@ -16,7 +16,7 @@ build scripts, dependency revisions or license terms, and publishes no binaries.
   terms in `COPYING.txt`. This fork does not relicense them as MIT or Apache.
 - Existing third-party notices and licenses must be retained. Dependency
   licenses remain their own; audit the actual build artifacts before distribution.
-- Netrunner Studio / NetEngine's planned receiver is proprietary, implemented
+- Netrunner Studio / NetEngine's receiver is proprietary, implemented
   independently in its own codebase, without copying bridge implementation code
   or linking the Studio / NetEngine executable against this bridge.
 - The intended interface is a standard PipeWire video stream, with separately
@@ -52,8 +52,19 @@ node exists. The fork is currently unvalidated with these applications.
 The independent, proprietary NetEngine receiver has been implemented in its
 own codebase. Tests there cover shared-memory input, linear and tiled DMA-BUF
 import through EGL, alpha conversion, vertical flip, capture-rate limits,
-multiple receivers, sender restart and resizing. Frames currently pass through
-CPU readback before Vulkan composition; this is not end-to-end zero-copy.
+multiple receivers, sender restart and resizing. A further receiver milestone
+now copies DMA-BUF input into owned GPU slots and imports those into Vulkan,
+without CPU pixel readback or texture upload. This uses one GPU copy, bounded
+frame leases and completion before returning the PipeWire producer buffer;
+it is not strict zero-copy. Color/alpha conversion and flip run on the GPU.
+
+The GPU path passed native synthetic tests on Intel UHD 770 and NVIDIA RTX
+5050, including modifier compatibility, pixels, alpha, flip, resize, retained
+storage and forced import failure with CPU fallback. Intel-to-NVIDIA input used
+CPU fallback on the tested machine. The normal Widgets entry also passed on
+RTX 5050 with both previews reporting GPU transport. The native suite passed
+78/78 tests, including 30 GPU tests. Direct/flat capture-to-encoder shortcuts
+are not enabled for these Linux DMA-BUF frames; encoding uses composition.
 
 The Studio Widgets entry was exercised with a synthetic DMA-BUF producer.
 A separate libfunnel probe using this fork's pinned libfunnel revision and
