@@ -1,5 +1,19 @@
 # Spout2PW: Spout2 to PipeWire bridge
 
+## Netrunner integration fork
+
+This public fork tracks the bridge used for planned Linux VTuber support in
+Netrunner Studio. The inherited bridge remains under LGPL-2.1; see
+[COPYING.txt](COPYING.txt). Original authorship and third-party notices are retained.
+
+The receiver in Netrunner Studio / NetEngine is intended to be an independent,
+proprietary PipeWire consumer. Its source is not part of this repository.
+No Studio receiver implementation or VTube Studio / VSeeFace compatibility
+validation is included yet. See [INTEGRATION.md](INTEGRATION.md) for the boundary,
+upstream baseline and acceptance criteria.
+
+## Original project
+
 **[Spout2PW website](https://spout2pw.lina.yt)**
 
 [![Github-sponsors](https://img.shields.io/github/sponsors/hoshinolina?label=Sponsor&logo=GitHub)](https://lina.yt/sponsor)
