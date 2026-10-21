@@ -8,8 +8,11 @@ Netrunner Studio. The inherited bridge remains under LGPL-2.1; see
 
 The receiver in Netrunner Studio / NetEngine is intended to be an independent,
 proprietary PipeWire consumer. Its source is not part of this repository.
-No Studio receiver implementation or VTube Studio / VSeeFace compatibility
-validation is included yet. See [INTEGRATION.md](INTEGRATION.md) for the boundary,
+The independent receiver now has an initial implementation in the private
+Studio / NetEngine codebase, tested with synthetic PipeWire senders and a
+libfunnel transport probe. Its source is not published here. VTube Studio /
+VSeeFace compatibility through this bridge is still unvalidated.
+See [INTEGRATION.md](INTEGRATION.md) for the boundary,
 upstream baseline and acceptance criteria.
 
 ## Original project

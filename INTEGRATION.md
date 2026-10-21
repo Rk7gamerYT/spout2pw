@@ -46,3 +46,18 @@ The Windows Spout2/D3D11 receiver remains a separate, existing backend.
 
 No item is marked complete merely because the bridge was forked or a PipeWire
 node exists. The fork is currently unvalidated with these applications.
+
+## Receiver milestone, 2026-10-21
+
+The independent, proprietary NetEngine receiver has been implemented in its
+own codebase. Tests there cover shared-memory input, linear and tiled DMA-BUF
+import through EGL, alpha conversion, vertical flip, capture-rate limits,
+multiple receivers, sender restart and resizing. Frames currently pass through
+CPU readback before Vulkan composition; this is not end-to-end zero-copy.
+
+The Studio Widgets entry was exercised with a synthetic DMA-BUF producer.
+A separate libfunnel probe using this fork's pinned libfunnel revision and
+synchronous mode also delivered frames. These receiver-side results are not
+validation of Spout2PW with VTube Studio or VSeeFace. All app-specific acceptance
+criteria above remain pending. No receiver source or binary is included here,
+and this update changes neither the bridge implementation nor its licensing.
